@@ -1,0 +1,27 @@
+.Footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 400;
+  color: #2d4059;
+  opacity: 0.8;
+  font-size: 0.8rem;
+  padding-bottom: .2em;
+}
+
+@media only screen and (min-width: 960px) {
+  .Footer {
+    position: absolute;
+    bottom: 4.8%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+}
+/*# sourceMappingURL=Footer.module.css.map */
