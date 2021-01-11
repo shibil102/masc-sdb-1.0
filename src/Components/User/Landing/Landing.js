@@ -1,83 +1,25 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import Nav from '../Navigation/Nav'
 import Addbtn from '../Addbutton/Addbutton'
 import classes from "./Landing.module.css";
 import StudentCard from '../StudentCard/StudentCard';
 
 const Landing = () => {
-    const Address = [{
-            name: 'roshith',
-            admno: '3516',
-            batch: '2019-2020',
-            programme: 'bca',
-            Mobno: '623874419'
-        
-        },
-        {
-            name: 'shibin',
-            admno: '3516',
-            batch: '2019-2020',
-            programme: 'bca',
-            Mobno: '623874419' 
-        },
-        {
-            name: 'nizam',
-            admno: '3516',
-            batch: '2019-2020',
-            programme: 'bca',
-            Mobno: '623874419' 
-        },
-        {
-            name: 'nizam',
-            admno: '3516',
-            batch: '2019-2020',
-            programme: 'bca',
-            Mobno: '623874419' 
-        },
-        {
-            name: 'nizam',
-            admno: '3516',
-            batch: '2019-2020',
-            programme: 'bca',
-            Mobno: '6238744419' 
-        },
-        {
-            name: 'roshith',
-            admno: '3516',
-            batch: '2019-2020',
-            programme: 'bca',
-            Mobno: '623874419'
-        
-        },
-        {
-            name: 'shibin',
-            admno: '3516',
-            batch: '2019-2020',
-            programme: 'bca',
-            Mobno: '623874419' 
-        },
-        {
-            name: 'nizam',
-            admno: '3516',
-            batch: '2019-2020',
-            programme: 'bca',
-            Mobno: '623874419' 
-        },
-        {
-            name: 'nizam',
-            admno: '3516',
-            batch: '2019-2020',
-            programme: 'bca',
-            Mobno: '623874419' 
-        },
-        {
-            name: 'nizam',
-            admno: '3516',
-            batch: '2019-2020',
-            programme: 'bca',
-            Mobno: '6238744419' 
-        },
-        ]
+    const token= localStorage.getItem('mascStudetDb')
+        const [Address,setAddress] = useState([]);
+            useEffect(()=>{
+
+                fetch('/student/all',{
+                    headers:{
+                        "authorization": token.replace(/['"]+/g, '')
+                    }
+                }).then(res=>res.json())
+                .then(responce=>{
+                    setAddress(responce);
+                    console.log(responce);
+                })
+
+            },[])
   return (
   <div className={classes.Landing}>
       <Nav />
@@ -88,9 +30,9 @@ const Landing = () => {
                     <StudentCard 
                     name={user.name}
                     admno={user.admno}
-                    mobno={user.Mobno}
+                    mobno={user.mob1}
                     batch={user.batch}
-                    programme={user.programme}
+                    programme={user.course}
                     />
 
                   )

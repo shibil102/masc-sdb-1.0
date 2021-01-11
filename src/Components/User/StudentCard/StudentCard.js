@@ -11,10 +11,10 @@ const StudentCard = (props) => {
 </div>
 </div>
 <div className={classes.StudentDetails}>
-<p className={classes.name}><span>Name : </span></p>
-<p className={classes.course}><span>course : </span></p>
-<p className={classes.batch}><span>batch : </span></p>
-<p className={classes.admno}><span>Admnno : </span></p>
+<p className={classes.name}><span>Name :{props.name || 'Loading'} </span></p>
+<p className={classes.course}><span>course :{props.programme || 'Loading'} </span></p>
+<p className={classes.batch}><span>batch :{props.batch || 'Loading'} </span></p>
+<p className={classes.admno}><span>Admnno :f**k </span></p>
 </div>
         </div>
 

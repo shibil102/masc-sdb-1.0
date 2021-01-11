@@ -3,15 +3,32 @@ import { FaFilter, FaTimes } from "react-icons/fa";
 import classes from "./Nav.module.css";
 
 const Menu = () => {
+      const token = localStorage.getItem('mascStudetDb');
+      const [filterData,setFilterData] = useState([])
+
+        const filter = ()=>{
+              fetch('/student/filter',{
+      headers:{
+        "authorization": token.replace(/['"]+/g, '')
+      }
+    }).then(res=>res.json()).then(responce=>{
+      console.log(responce);
+      setFilterData(responce)
+    })
+
+        }
 
 const [FilterToggle, setFilterToggle] = useState(false)
 
 const FilterActivation = () => {
     setFilterToggle(true)
+    console.log('on');
+    filter()
 }
 
 const FilterDeActivation = () => {
     setFilterToggle(false)
+    console.log('off');
 }
 
   return (
@@ -37,32 +54,30 @@ const FilterDeActivation = () => {
           <form action="" className={classes.FilterserchForm}>
             <label htmlFor="Batch">Batch</label>
             <select name="Batch">
-              <option>2005-2008</option>
-              <option>2006-2009</option>
-              <option>2007-2010</option>
-              <option>2008-2011</option>
-              <option>2009-2012</option>
-              <option>2010-2013</option>
+            {
+                      filterData.map((single,index)=>{
+                        return <option key={index}>{single.batch}</option>
+                      })
+                    }
+              
             </select>
             <label htmlFor="Semester">Semester</label>
             <select name="Semester">
-              <option>First</option>
-              <option>Second</option>
-              <option>Third</option>
-              <option>Fourth</option>
-              <option>Fifth</option>
-              <option>Sixth</option>
+                    {
+                      filterData.map((single,index)=>{
+                        return <option key={index}>{single.sem}</option>
+                      })
+                    }
             </select>
             <label htmlFor="Course">Course</label>
             <select name="Course">
-              <option>BCA</option>
-              <option>BSC Computer Science</option>
-              <option>BSC MicroBiology</option>
-              <option>BCOM TT</option>
-              <option>BA English</option>
-              <option>BA Malayalm</option>
+            {
+                      filterData.map((single,index)=>{
+                        return <option key={index}>{single.course}</option>
+                      })
+                    }
             </select>
-            <input className={classes.FilterSearchSubmit} type="Submit" value="Search" />
+            <input className={classes.FilterSearchSubmit} type="button" value="Search" />
           </form>
         </div>
       </div>
