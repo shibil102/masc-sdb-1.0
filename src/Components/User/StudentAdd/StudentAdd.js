@@ -3,7 +3,9 @@ import classes from '../StudentAdd/StudentAdd.module.css'
 
 const StudentAdd = () => {
 return(
-    <div className={classes.StudentAdd}></div>
+    <div className={classes.StudentAdd}>
+        <h1>Student Add</h1>
+    </div>
 )
 }
 

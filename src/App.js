@@ -2,6 +2,9 @@ import React, { useContext, useReducer, useEffect, createContext } from "react";
 import { BrowserRouter, Route, Switch, useHistory } from "react-router-dom";
 import Auth from "./Components/User/Authentication/Auth";
 import Landing from "./Components/User/Landing/Landing";
+import Report from './Components/User/Report/Report';
+import Discard from './Components/User/discard/Discard';
+import StudentAdd from './Components/User/StudentAdd/StudentAdd';
 import "./App.module.css";
 import { intialState, reducer } from "./reducer/Usereucer";
 import classes from "./App.module.css";
@@ -31,6 +34,19 @@ const Routing = () => {
 
       <Route path="/login">
         <Auth />
+      </Route>
+
+      <Route path="/report">
+        <Report />
+      </Route>
+
+
+      <Route path="/discard">
+        <Discard />
+      </Route>
+
+      <Route path="/addstudent">
+        <StudentAdd />
       </Route>
     </Switch>
   );
