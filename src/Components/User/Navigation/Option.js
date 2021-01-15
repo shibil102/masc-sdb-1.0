@@ -6,9 +6,8 @@ const Option = () => {
   return (
     <div className={classes.Option}>
       <ul>
-       <Link to="/"><li>Home</li></Link> 
-       <Link to ="/report"><li>Report</li></Link> 
-       <Link to ="/discard"><li>Discard</li></Link> 
+       <Link to="/" style={{color: "#2d4059", textDecoration: "none"}} ><li>Home</li></Link> 
+       <Link to ="/discard" style={{color: "#2d4059", textDecoration: "none"}} ><li>Trash</li></Link> 
        
         <li  className={classes.Logout} onClick={()=>{
           localStorage.removeItem('mascStudetDb')

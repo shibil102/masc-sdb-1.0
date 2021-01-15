@@ -1,0 +1,332 @@
+$SeconderyColor: #2d4059;
+$ThirdColor: #ea5455;
+$FontFam: "Poppins", sans-serif;
+$Primarycolor: #fafafa;
+$SeconderyFontcolor: #fafafa;
+$UltraSmallText: 0.9rem;
+$PcUltraSmallText: 1.2rem;
+$PcHeadingSize: 1.5rem;
+.StudentAdd{
+    display: grid;
+    grid-template-rows: auto 1fr;
+    background: #f5f5f5;
+    place-items: center;   
+}
+.StudentAddForm{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    background: $Primarycolor;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+    width: 90%;
+    min-height: 90vh;
+    .Form{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        // justify-content: center;
+        flex-direction: column;
+        .Head{
+            margin-top: 1em;
+            font-weight: 600;
+            color: $SeconderyColor;
+        }
+        form{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            
+            .Personalinfo, .QualificationInfo, .GuardianInfo, .OtherInfo{
+                margin-top: 1em;
+                width: 90%;
+                height: 50px;
+                display: flex;
+                color: $SeconderyColor;
+                align-items: center;
+                justify-content: space-around;
+                background: #f5f5f5;
+                border: 0.5px solid $SeconderyColor;
+                border-radius: 2px;
+                
+            }
+            .GuardianInfoActivate{
+                margin-top: 1em;
+                width: 90%;
+                height: 50px;
+                display: flex;
+                color: $SeconderyColor;
+                align-items: center;
+                justify-content: space-around;
+                background: #f5f5f5;
+                border: 0.5px solid $SeconderyColor;
+                border-radius: 2px;
+                border-bottom: none;
+            }
+            .PersonalinfoActive{
+                margin-top: 1em;
+                width: 90%;
+                height: 50px;
+                display: flex;
+                color: $SeconderyColor;
+                align-items: center;
+                justify-content: space-around;
+                background: #f5f5f5;
+                border: 0.5px solid $SeconderyColor;
+                border-radius: 2px;
+                border-bottom: none;
+            }
+            .QualificationInfoActivate{
+                margin-top: 1em;
+                width: 90%;
+                height: 50px;
+                display: flex;
+                color: $SeconderyColor;
+                align-items: center;
+                justify-content: space-around;
+                background: #f5f5f5;
+                border: 0.5px solid $SeconderyColor;
+                border-radius: 2px;
+                border-bottom: none;
+            }
+            .OtherInfoActive{
+                margin-top: 1em;
+                width: 90%;
+                height: 50px;
+                display: flex;
+                color: $SeconderyColor;
+                align-items: center;
+                justify-content: space-around;
+                background: #f5f5f5;
+                border: 0.5px solid $SeconderyColor;
+                border-radius: 2px;
+                border-bottom: none;
+            }
+            .OtherInfoData{
+                width: 90%;
+                border:  0.5px solid $SeconderyColor;
+                border-top: none;
+                background: #f5f5f5;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+                input, select, option{
+                    font-weight: 400;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                    padding: 0.5em 2px;
+                    outline: none;
+                    border: none;
+                    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                    border-bottom: 2px solid rgba($color: #2d4059, $alpha: 0);
+                    color: $SeconderyColor;
+                    font-size: $UltraSmallText;
+                    &:focus {
+                        transition: 0.7s ease;
+                        border-bottom: 2px solid rgba($color: #2d4059, $alpha: 1);
+                      }
+                      
+                    }
+                    .r_Head{
+                        color: $ThirdColor;
+                        font-weight: 600;
+                    }
+                    .normalInputLabel{
+                        font-weight: 600;
+                        text-align: center;
+                        font-size: $UltraSmallText;
+                        color: $SeconderyColor;
+                        font-style: italic;
+                    }
+            }
+            .OtherInfoDataActivate{
+                display: none;
+            }
+            .guardianInfoData {
+                width: 90%;
+                border:  0.5px solid $SeconderyColor;
+                border-top: none;
+                background: #f5f5f5;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+                input, select, option{
+                    font-weight: 400;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                    padding: 0.5em 2px;
+                    outline: none;
+                    border: none;
+                    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                    border-bottom: 2px solid rgba($color: #2d4059, $alpha: 0);
+                    color: $SeconderyColor;
+                    font-size: $UltraSmallText;
+                    &:focus {
+                        transition: 0.7s ease;
+                        border-bottom: 2px solid rgba($color: #2d4059, $alpha: 1);
+                      }
+                   
+                }
+                .normalInputLabel{
+                    font-weight: 600;
+                    text-align: center;
+                    font-size: $UltraSmallText;
+                    color: $SeconderyColor;
+                    font-style: italic;
+                }
+                .r_Head{
+                    color: $ThirdColor;
+                    font-weight: 600;
+                }
+               
+                
+            }
+            .guardianInfoDataActivate{
+                display: none;
+            }
+            .PersonalInfoData{
+                width: 90%;
+                border:  0.5px solid $SeconderyColor;
+                border-top: none;
+                background: #f5f5f5;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+                input, select, option{
+                    font-weight: 400;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                    padding: 0.5em 2px;
+                    outline: none;
+                    border: none;
+                    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                    border-bottom: 2px solid rgba($color: #2d4059, $alpha: 0);
+                    color: $SeconderyColor;
+                    font-size: $UltraSmallText;
+                    &:focus {
+                        transition: 0.7s ease;
+                        border-bottom: 2px solid rgba($color: #2d4059, $alpha: 1);
+                      }
+                
+                }
+                .sexInput{
+                    margin-right: 2px;
+                }
+              
+                .normalInputLabel{
+                    font-weight: 600;
+                    text-align: center;
+                    font-size: $UltraSmallText;
+                    color: $SeconderyColor;
+                    font-style: italic;
+                }
+                .LabelsexInput{
+                    margin-right: 10px;
+                    font-style: none;
+                    font-size: $UltraSmallText;
+                    color: $SeconderyColor;
+                    font-weight: 400;
+                    text-align: center;
+                }
+            }
+            .PersonalInfoDataActivate{
+                display: none;
+            }
+            .QualificationData{
+                width: 90%;
+                border:  0.5px solid $SeconderyColor;
+                border-top: none;
+                background: #f5f5f5;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+                input, select, option{
+                    font-weight: 400;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                    padding: 0.5em 2px;
+                    outline: none;
+                    border: none;
+                    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                    border-bottom: 2px solid rgba($color: #2d4059, $alpha: 0);
+                    color: $SeconderyColor;
+                    font-size: $UltraSmallText;
+                    &:focus {
+                        transition: 0.7s ease;
+                        border-bottom: 2px solid rgba($color: #2d4059, $alpha: 1);
+                      }
+                
+                }
+                .normalInputLabel{
+                    font-weight: 600;
+                    text-align: center;
+                    font-size: $UltraSmallText;
+                    color: $SeconderyColor;
+                    font-style: italic;
+                }
+                .r_Head{
+                    color: $ThirdColor;
+                    font-weight: 600;
+                }
+                .CurricularInpu{
+                    margin-right: 2px;
+                }
+                .LabeletcInput{
+                    margin-right: 10px;
+                    font-style: none;
+                    font-size: $UltraSmallText;
+                    color: $SeconderyColor;
+                    font-weight: 400;
+                    text-align: center;
+                }
+               
+            }
+            .QualifiactionDataActivate{
+                  display: none;  
+            }
+            .Error{
+                list-style: none;
+                color: $ThirdColor;
+                font-weight: 300;
+                font-size: $UltraSmallText;
+                text-align: center;
+            }
+            .Submit{
+                margin-top: 1em;
+                margin-bottom: 1em;
+                padding: 0.7em 1.5em;
+                border-radius: 2px;
+                border: none;
+                outline: none;
+                background: $SeconderyColor;
+                color: $Primarycolor;
+                font-weight: 600;
+            }
+            .ProfilePhoto {
+                margin-top: 1em;
+                height: 125px;
+                width: 125px;
+                border: 2px solid rgba($color:  #2d4059, $alpha: 0.2);
+                overflow: hidden;
+                border-radius: 50%;
+                background: $Primarycolor;
+                background: url("../../../Asset/icon.png");
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+                .Photo{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+        }
+        
+      
+    }
+}

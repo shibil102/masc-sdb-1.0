@@ -131,6 +131,26 @@ $PcHeadingSize: 1.5rem;
     }
   }
 }
+.StudentNav{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100vw;
+  height: 8vh;
+  background: $Primarycolor;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+  p{
+    color: $SeconderyColor;
+  }
+  button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+    background: none;
+  }
+}
 @media only screen and (min-width: 960px) {
   .Nav {
     height: 6vh;

@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 
 const Discard = () => {
-    return (
+    return(
         <div>
-            <h1>Discard</h1>
+            <h3> hello world </h3>
         </div>
-    );
-};
+    )
+}
 
-export default Discard;
+export default Discard

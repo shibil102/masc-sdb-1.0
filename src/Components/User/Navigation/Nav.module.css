@@ -190,6 +190,41 @@
   cursor: pointer;
 }
 
+.StudentNav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 100vw;
+  height: 8vh;
+  background: #fafafa;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+          box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.StudentNav p {
+  color: #2d4059;
+}
+
+.StudentNav button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: none;
+  outline: none;
+  background: none;
+}
+
 @media only screen and (min-width: 960px) {
   .Nav {
     height: 6vh;
