@@ -6,7 +6,101 @@ const StudentAddForm = () => {
 const [personInfo, setPersonInfo] = useState(false)
 const [guardienInfo, setGuardianInfo] = useState(false)
 const [QualificationInfo, setQualificationInfo] = useState(false)
-const [OtherInfo, setOtherInfo] = useState(false)
+const [OtherInfo, setOtherInfo] = useState(false);
+const [pic,setPic] = useState('');
+
+/* mob2, dob, sex, bloodGroup,
+        nameOfGuardian, addressOfGuardian, relationGuardin,
+        occupationOfGuardian, religion, prevShool, residence,
+        course, sem, batch, sslc, hss, specialProblem,
+        recommanted, responsibleGuardianName, responsibleGuardianAge,
+        responsibleGuardianMob, responsibleGuardianRelation */
+
+
+//form data
+const [lName,setLname] = useState('');
+const [fName,setFname] = useState('')
+const [mob1,setMob1] = useState('');
+const [mob2,setMob2]  = useState('');
+const [dob,setDob]  = useState('');
+const [sex,setSex] = useState('');
+const [bloodGroup,setBloodGorup] = useState('');
+const [nameOfGuardian,setNameofGurdian] =  useState('');
+const [addressOfGuardian,setAdressofGuardan] = useState('');
+const [relationGuardian,setRelationGuardan] = useState('');
+const [occupationOfGuardian,setOccuptinofGurdian] = useState('');
+const [course,setCourse] = useState('');
+const [sem,setSem] = useState('');
+const [batch,setBatch] = useState('');
+const [sslc,setSslc] = useState('');
+
+
+
+
+
+
+const token = localStorage.getItem('mascStudetDb');
+
+const postStudent = ()=>{
+  fetch('student/newstudent',{
+    method:'Post',
+    headers:{
+      'Content-Type': 'application/json',
+      "authorization": token.replace(/['"]+/g, '')
+    },
+    body:JSON.stringify({
+      lName,
+      fName,
+      course,
+      sex,
+      sem,
+      mob1,
+      mob2,
+      bloodGroup,
+      dob,
+      nameOfGuardian,
+      addressOfGuardian,
+      relationGuardian,
+      occupationOfGuardian,
+      batch,
+      sslc,
+      pic,
+
+    })
+  }).then(res=>res.json()).then(responce=>{
+    console.log(responce);
+  })
+}
+
+const postPic = ()=>{
+   //formdata object ||Currently its empty and more clarification go and read mozila doc you will understand much more about Formdata()
+   console.log('in upload',image.imageUrl);
+   const data = new FormData()
+
+   //append the image with key value pair image is above const image 
+   data.append('file', image.imageUrl)
+
+   //put name of cloud upload/project name read cloudinary docs
+   data.append('upload_preset', "mascStudent");
+
+   //put name of cloud 
+   data.append('cloud_name', "drm0dd1dj")
+
+   //cloud base api insted fetch you can use axios like 3rd party libary
+   fetch("https://api.cloudinary.com/v1_1/drm0dd1dj/image/upload", {
+       method: "post",
+       body: data
+   }).then(res => res.json()).then(data => {
+       console.log(data);
+       setPic(data.url)
+       if(pic){
+         
+         postStudent();
+       }
+       
+       console.log("url", data.url);
+   }).catch(e => console.log('error in upload', e))
+}
 
 const PersonInfoActivater = () => {
   setPersonInfo(!personInfo)
@@ -26,6 +120,7 @@ const Submit = () => {
   setGuardianInfo(true)
   setQualificationInfo(true)
   setOtherInfo(true)
+ 
 }
 
 
@@ -43,7 +138,9 @@ const Submit = () => {
           errorFixInfo: "max image size 100kb",
         });
       } else {
+       
         const reader = new FileReader();
+       
         reader.onload = () => {
           if (reader.readyState === 2) {
             console.log(reader);
@@ -66,7 +163,15 @@ const Submit = () => {
     <div className={classes.StudentAddForm}>
       <div className={classes.Form}>
         <p className={classes.Head}>Student Info Form</p>
-        <form action="">
+        
+        {/* form */}
+
+        <form onSubmit={(e)=>{
+          e.preventDefault()
+          console.log('clicked',e);
+          postPic()
+          
+        }}>
           <div onClick={ProfileClickFun} className={classes.ProfilePhoto}>
             <img className={classes.Photo} src={image.imageUrl} alt="" />
           </div>
@@ -88,9 +193,9 @@ const Submit = () => {
 </div>
 <div className={ personInfo ? classes.PersonalInfoData :  classes.PersonalInfoDataActivate}  >
   <label className={classes.normalInputLabel} htmlFor="firstname">Firstname</label>
-  <input type="text" name="firstname" required  />
+  <input type="text" name="firstname" required onChange={(e)=>setFname(e.target.value)} />
   <label className={classes.normalInputLabel} htmlFor="lastname">Lastname</label>
-  <input type="text" name="lastname" required />
+  <input type="text" name="lastname" required onChange={(e)=>setLname(e.target.value)} />
   <label className={classes.normalInputLabel} htmlFor="homename">Home name</label>
   <input type="text" name="homename" required  />
   <label className={classes.normalInputLabel} htmlFor="post">Post</label>
@@ -110,14 +215,14 @@ const Submit = () => {
   <label className={classes.normalInputLabel} htmlFor="parentname">Sex</label>
   <div className={classes.Sex}>
     <label className={classes.LabelsexInput} htmlFor="sex">
-    <input className={classes.sexInput} type="radio" name="Sex" value="Male" required  />
+    <input className={classes.sexInput} type="radio" name="Sex" value="Male" required onClick={()=>console.log('male')} />
       Male</label>
   <label className={classes.LabelsexInput} htmlFor="sex">
-  <input className={classes.sexInput} type="radio" name="Sex" value="Female" required  />
+  <input className={classes.sexInput} type="radio" name="Sex" value="Female" required onClick={()=>console.log('female')} />
     Female</label>
   
     <label className={classes.LabelsexInput} htmlFor="sex">
-  <input className={classes.sexInput} type="radio" name="Sex" value="Other" required  />
+  <input className={classes.sexInput} type="radio" name="Sex" value="Other" required onClick={()=>console.log('other')} />
     Other</label>
   </div>
   <label className={classes.normalInputLabel} htmlFor="bGroup">Blood Group</label>
@@ -278,7 +383,7 @@ const Submit = () => {
 </div>
 
 
-          <input className={classes.Submit} type="submit" value="Submit" onClick={Submit} />
+          <input className={classes.Submit} type="submit" value="Submit" onClick={Submit}  />
         </form>
       </div>
     </div>

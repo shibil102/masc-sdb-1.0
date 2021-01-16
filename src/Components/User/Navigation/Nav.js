@@ -3,10 +3,10 @@ import React from 'react'
 import Option from './Option'
 import Menu from './Menu'
 
-const Nav = () => {
+const Nav = (props) => {
     return(
         <div className={classes.Nav}>
-            <Menu />
+            <Menu data={props.data.setAddress}/>
             <Option />
         </div>
     )

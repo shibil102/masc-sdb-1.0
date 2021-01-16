@@ -38,13 +38,14 @@ const Landing = () => {
 
     return (
         <div className={classes.Landing}>
-            <Nav />
+            <Nav data={{Address,setAddress}} />
             <div className={classes.StudentDataShow}>
                 {
                     Address.map((user, index) => {
+                        
                         return (
                             <StudentCard
-                                name={user.name}
+                                name={user.fName + ' ' + user.lName}
                                 admno={user.admno}
                                 mobno={user.mob1}
                                 batch={user.batch}
