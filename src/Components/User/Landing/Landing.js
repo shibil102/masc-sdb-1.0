@@ -50,6 +50,7 @@ const Landing = () => {
                                 mobno={user.mob1}
                                 batch={user.batch}
                                 programme={user.course}
+                                pic = {user.pic}
                             />
 
                         )

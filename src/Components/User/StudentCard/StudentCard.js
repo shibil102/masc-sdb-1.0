@@ -7,7 +7,7 @@ const StudentCard = (props) => {
         <div className={classes.StudentCardContainer}>
 <div className={classes.StudentPhoto}>
 <div className={classes.Photo}>
-    <img src={Image} alt=""/>
+    <img src={props.pic} alt="Loading ...."/>
 </div>
 </div>
 <div className={classes.StudentDetails}>

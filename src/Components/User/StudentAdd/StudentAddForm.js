@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef,useEffect } from "react";
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa'
 import classes from "./StudentAdd.module.css";
 import {cloud} from './key'
@@ -8,7 +8,7 @@ const StudentAddForm = () => {
   const [guardienInfo, setGuardianInfo] = useState(false)
   const [QualificationInfo, setQualificationInfo] = useState(false)
   const [OtherInfo, setOtherInfo] = useState(false);
-  const [pic, setPic] = useState('');
+ let pic
 
 
 
@@ -65,7 +65,10 @@ let residence
 
   const token = localStorage.getItem('mascStudetDb');
 
-  const postStudent = () => {
+   const postData = ()=>{
+     if(pic){
+      console.log(bloodGroup);
+      console.log(admissionSecured);
     fetch('student/newstudent', {
       method: 'Post',
       headers: {
@@ -113,13 +116,16 @@ let residence
         email
       })
     }).then(res => res.json()).then(responce => {
+      if(responce.error) alert(responce.error)
+
+      else{
       console.log(responce);
         setFname('');
         setLname('');
         setImage({});
         setHomename('');
         setPost('');
-        setPic('');
+        pic =''
         setPincode('');
         setCity('');
         setEmail('');
@@ -127,12 +133,15 @@ let residence
         setMob1('');
         setMob2('');
         setDob('')
-
+      }
     }).catch(e=>{
       console.log(e);
     })
+  }else{
+  alert('select a photo')
   }
-
+   }
+  
   const postPic = () => {
     //formdata object ||Currently its empty and more clarification go and read mozila doc you will understand much more about Formdata()
     console.log('in upload', image.imageUrl);
@@ -148,15 +157,14 @@ let residence
     data.append('cloud_name', cloud.cloudName)
 
     //cloud base api insted fetch you can use axios like 3rd party libary
-    fetch('https://api.cloudinary.com/v1_1/drm0dd1dj/image/upload', {
+    fetch(cloud.fetch, {
       method: "post",
       body: data
     }).then(res => res.json()).then(data => {
       console.log(data);
-      setPic(data.secure_url)
-      if (pic) {
-
-         postStudent();
+      pic = data.secure_url;
+      if(pic){
+      postData()
       }
 
      
@@ -230,7 +238,7 @@ let residence
         <form onSubmit={(e) => {
           e.preventDefault()
           console.log('clicked', e.target);
-          bloodGroup = (e.target[14][0].value);
+        bloodGroup=e.target[14][0].value
           admissionSecured = e.target[35][0].value;
           residence = e.target[36][0].value;
           sem = e.target[43][0].value;
@@ -238,7 +246,9 @@ let residence
           console.log('add',admissionSecured ,'res',residence,'sem',sem,'batch',batch,'dobs',
           dob,'sex',sex,'etc',etcActivity);
           
-          postPic()
+           postPic()
+        //  postData()
+
          
 
         }}>
