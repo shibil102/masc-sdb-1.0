@@ -113,6 +113,22 @@ let residence
       })
     }).then(res => res.json()).then(responce => {
       console.log(responce);
+        setFname('');
+        setLname('');
+        setImage({});
+        setHomename('');
+        setPost('');
+        setPic('');
+        setPincode('');
+        setCity('');
+        setEmail('');
+        setCity('');
+        setMob1('');
+        setMob2('');
+        setDob('')
+
+    }).catch(e=>{
+      console.log(e);
     })
   }
 
@@ -136,13 +152,13 @@ let residence
       body: data
     }).then(res => res.json()).then(data => {
       console.log(data);
-      setPic(data.url)
+      setPic(data.secure_url)
       if (pic) {
 
-        // postStudent();
+         postStudent();
       }
 
-      console.log("url", data);
+     
     }).catch(e => console.log('error in upload', e))
   }
 
@@ -221,8 +237,8 @@ let residence
           console.log('add',admissionSecured ,'res',residence,'sem',sem,'batch',batch,'dobs',
           dob,'sex',sex,'etc',etcActivity);
           
-          // postPic()
-          postStudent();
+          postPic()
+         
 
         }}>
           <div onClick={ProfileClickFun} className={classes.ProfilePhoto}>
@@ -485,7 +501,7 @@ let residence
             <label className={classes.r_Head} htmlFor="etcCurricular">Extra Curricular Activities</label>
             <div className={classes.etcCurricular}>
               <label className={classes.LabeletcInput} htmlFor="Arts">
-                <input className={classes.CurricularInput} type="radio" name="etc" value="Arts" required
+                <input className={classes.CurricularInput} type="radio" name="etc" value="Arts"
                   onClick={e => {
                     setEtcActivity(e.target.value)
                   }}
@@ -493,7 +509,7 @@ let residence
                     Arts</label>
               <label className={classes.LabeletcInput} htmlFor="Sports">
 
-                <input className={classes.CurricularInput} type="radio" name="etc" value="Sports" required
+                <input className={classes.CurricularInput} type="radio" name="etc" value="Sports" 
                   onClick={e => {
                    setEtcActivity(e.target.value)
                   }}
@@ -501,7 +517,7 @@ let residence
                      Sports</label>
 
               <label className={classes.LabeletcInput} htmlFor="NCC">
-                <input className={classes.CurricularInput} type="radio" name="etc" value="NCC" required
+                <input className={classes.CurricularInput} type="radio" name="etc" value="NCC" 
                   onClick={e => {
                    setEtcActivity(e.target.value)
                   }}
@@ -509,9 +525,9 @@ let residence
                  NCC</label>
 
               <label className={classes.LabeletcInput} htmlFor="NSS">
-                <input className={classes.CurricularInput} type="radio" name="etc" value="NSS" required
+                <input className={classes.CurricularInput} type="radio" name="etc" value="NSS" 
                   onClick={e => {
-                    etcActivity = e.target.value
+                    setEtcActivity(e.target.value);
                   }}
                 />
                 NSS</label>
@@ -520,7 +536,7 @@ let residence
             </div>
 
             <label className={classes.normalInputLabel} htmlFor="SpecialAchievments">Special Achievments</label>
-            <input type="text" name="SpecialAchievments" required
+            <input type="text" name="SpecialAchievments" 
               value={specialAchiev}
               onChange={e => {
                 setSpecialAchiev(e.target.value)
