@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa'
 import classes from "./StudentAdd.module.css";
+import {cloud} from './key'
 
 const StudentAddForm = () => {
   const [personInfo, setPersonInfo] = useState(false)
@@ -141,13 +142,13 @@ let residence
     data.append('file', image.imageUrl)
 
     //put name of cloud upload/project name read cloudinary docs
-    data.append('upload_preset', "mascStudent");
+    data.append('upload_preset', cloud.uploadPreset);
 
     //put name of cloud 
-    data.append('cloud_name', "drm0dd1dj")
+    data.append('cloud_name', cloud.cloudName)
 
     //cloud base api insted fetch you can use axios like 3rd party libary
-    fetch("https://api.cloudinary.com/v1_1/drm0dd1dj/image/upload", {
+    fetch('https://api.cloudinary.com/v1_1/drm0dd1dj/image/upload', {
       method: "post",
       body: data
     }).then(res => res.json()).then(data => {
