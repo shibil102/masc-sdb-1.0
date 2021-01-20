@@ -7,434 +7,154 @@
   place-items: center;
 }
 
-.StudentAddForm {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
+.Form {
+  width: 100vw;
+  min-height: 100vh;
   background: #fafafa;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
-          box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
-  width: 90%;
-  min-height: 90vh;
-}
-
-.StudentAddForm .Form {
-  height: 100%;
-  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.StudentAddForm .Form .Head {
-  margin-top: 1em;
-  font-weight: 600;
-  color: #2d4059;
-}
-
-.StudentAddForm .Form form {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.StudentAddForm .Form form .Personalinfo, .StudentAddForm .Form form .QualificationInfo, .StudentAddForm .Form form .GuardianInfo, .StudentAddForm .Form form .OtherInfo {
-  margin-top: 1em;
-  width: 90%;
-  height: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  color: #2d4059;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  background: #f5f5f5;
-  border: 0.5px solid #2d4059;
-  border-radius: 2px;
-}
-
-.StudentAddForm .Form form .GuardianInfoActivate {
-  margin-top: 1em;
-  width: 90%;
-  height: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  color: #2d4059;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  background: #f5f5f5;
-  border: 0.5px solid #2d4059;
-  border-radius: 2px;
-  border-bottom: none;
-}
-
-.StudentAddForm .Form form .PersonalinfoActive {
-  margin-top: 1em;
-  width: 90%;
-  height: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  color: #2d4059;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  background: #f5f5f5;
-  border: 0.5px solid #2d4059;
-  border-radius: 2px;
-  border-bottom: none;
-}
-
-.StudentAddForm .Form form .QualificationInfoActivate {
-  margin-top: 1em;
-  width: 90%;
-  height: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  color: #2d4059;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  background: #f5f5f5;
-  border: 0.5px solid #2d4059;
-  border-radius: 2px;
-  border-bottom: none;
-}
-
-.StudentAddForm .Form form .OtherInfoActive {
-  margin-top: 1em;
-  width: 90%;
-  height: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  color: #2d4059;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  background: #f5f5f5;
-  border: 0.5px solid #2d4059;
-  border-radius: 2px;
-  border-bottom: none;
-}
-
-.StudentAddForm .Form form .OtherInfoData {
-  width: 90%;
-  border: 0.5px solid #2d4059;
-  border-top: none;
-  background: #f5f5f5;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
-.StudentAddForm .Form form .OtherInfoData input, .StudentAddForm .Form form .OtherInfoData select, .StudentAddForm .Form form .OtherInfoData option {
-  font-weight: 400;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding: 0.5em 2px;
-  outline: none;
-  border: none;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-          box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  border-bottom: 2px solid rgba(45, 64, 89, 0);
-  color: #2d4059;
-  font-size: 0.9rem;
-}
-
-.StudentAddForm .Form form .OtherInfoData input:focus, .StudentAddForm .Form form .OtherInfoData select:focus, .StudentAddForm .Form form .OtherInfoData option:focus {
-  -webkit-transition: 0.7s ease;
-  transition: 0.7s ease;
-  border-bottom: 2px solid #2d4059;
-}
-
-.StudentAddForm .Form form .OtherInfoData .r_Head {
-  color: #ea5455;
-  font-weight: 600;
-}
-
-.StudentAddForm .Form form .OtherInfoData .normalInputLabel {
-  font-weight: 600;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #2d4059;
-  font-style: italic;
-}
-
-.StudentAddForm .Form form .OtherInfoDataActivate {
-  display: none;
-}
-
-.StudentAddForm .Form form .guardianInfoData {
-  width: 90%;
-  border: 0.5px solid #2d4059;
-  border-top: none;
-  background: #f5f5f5;
+.RealForm {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.StudentAddForm .Form form .guardianInfoData input, .StudentAddForm .Form form .guardianInfoData select, .StudentAddForm .Form form .guardianInfoData option {
-  font-weight: 400;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding: 0.5em 2px;
-  outline: none;
-  border: none;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-          box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  border-bottom: 2px solid rgba(45, 64, 89, 0);
-  color: #2d4059;
-  font-size: 0.9rem;
-}
-
-.StudentAddForm .Form form .guardianInfoData input:focus, .StudentAddForm .Form form .guardianInfoData select:focus, .StudentAddForm .Form form .guardianInfoData option:focus {
-  -webkit-transition: 0.7s ease;
-  transition: 0.7s ease;
-  border-bottom: 2px solid #2d4059;
-}
-
-.StudentAddForm .Form form .guardianInfoData .normalInputLabel {
-  font-weight: 600;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #2d4059;
-  font-style: italic;
-}
-
-.StudentAddForm .Form form .guardianInfoData .r_Head {
-  color: #ea5455;
-  font-weight: 600;
-}
-
-.StudentAddForm .Form form .guardianInfoDataActivate {
-  display: none;
-}
-
-.StudentAddForm .Form form .PersonalInfoData {
-  width: 90%;
-  border: 0.5px solid #2d4059;
-  border-top: none;
-  background: #f5f5f5;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
-.StudentAddForm .Form form .PersonalInfoData input, .StudentAddForm .Form form .PersonalInfoData select, .StudentAddForm .Form form .PersonalInfoData option {
-  font-weight: 400;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding: 0.5em 2px;
-  outline: none;
-  border: none;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-          box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  border-bottom: 2px solid rgba(45, 64, 89, 0);
-  color: #2d4059;
-  font-size: 0.9rem;
-}
-
-.StudentAddForm .Form form .PersonalInfoData input:focus, .StudentAddForm .Form form .PersonalInfoData select:focus, .StudentAddForm .Form form .PersonalInfoData option:focus {
-  -webkit-transition: 0.7s ease;
-  transition: 0.7s ease;
-  border-bottom: 2px solid #2d4059;
-}
-
-.StudentAddForm .Form form .PersonalInfoData .sexInput {
-  margin-right: 2px;
-}
-
-.StudentAddForm .Form form .PersonalInfoData .normalInputLabel {
-  font-weight: 600;
+.RealForm .Errormsg {
+  margin-top: 10px;
   text-align: center;
-  font-size: 0.9rem;
-  color: #2d4059;
-  font-style: italic;
-}
-
-.StudentAddForm .Form form .PersonalInfoData .LabelsexInput {
-  margin-right: 10px;
-  font-style: none;
-  font-size: 0.9rem;
-  color: #2d4059;
-  font-weight: 400;
-  text-align: center;
-}
-
-.StudentAddForm .Form form .PersonalInfoDataActivate {
-  display: none;
-}
-
-.StudentAddForm .Form form .QualificationData {
-  width: 90%;
-  border: 0.5px solid #2d4059;
-  border-top: none;
-  background: #f5f5f5;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.StudentAddForm .Form form .QualificationData input, .StudentAddForm .Form form .QualificationData select, .StudentAddForm .Form form .QualificationData option {
-  font-weight: 400;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding: 0.5em 2px;
-  outline: none;
-  border: none;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-          box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  border-bottom: 2px solid rgba(45, 64, 89, 0);
-  color: #2d4059;
-  font-size: 0.9rem;
-}
-
-.StudentAddForm .Form form .QualificationData input:focus, .StudentAddForm .Form form .QualificationData select:focus, .StudentAddForm .Form form .QualificationData option:focus {
-  -webkit-transition: 0.7s ease;
-  transition: 0.7s ease;
-  border-bottom: 2px solid #2d4059;
-}
-
-.StudentAddForm .Form form .QualificationData .normalInputLabel {
-  font-weight: 600;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #2d4059;
-  font-style: italic;
-}
-
-.StudentAddForm .Form form .QualificationData .r_Head {
   color: #ea5455;
-  font-weight: 600;
+  opacity: 0.8;
 }
 
-.StudentAddForm .Form form .QualificationData .CurricularInpu {
-  margin-right: 2px;
-}
-
-.StudentAddForm .Form form .QualificationData .LabeletcInput {
-  margin-right: 10px;
-  font-style: none;
-  font-size: 0.9rem;
-  color: #2d4059;
-  font-weight: 400;
-  text-align: center;
-}
-
-.StudentAddForm .Form form .QualifiactionDataActivate {
-  display: none;
-}
-
-.StudentAddForm .Form form .Error {
-  list-style: none;
-  color: #ea5455;
-  font-weight: 300;
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-.StudentAddForm .Form form .Submit {
-  margin-top: 1em;
-  margin-bottom: 1em;
-  padding: 0.7em 1.5em;
-  border-radius: 2px;
-  border: none;
+.RealForm .Submit {
+  padding: 0.5em 1em;
   outline: none;
+  border: none;
   background: #2d4059;
+  border-radius: 2px;
   color: #fafafa;
   font-weight: 600;
+  margin-bottom: 1em;
 }
 
-.StudentAddForm .Form form .ProfilePhoto {
+.RealForm .MainHead {
   margin-top: 1em;
-  height: 125px;
-  width: 125px;
-  border: 2px solid rgba(45, 64, 89, 0.2);
-  overflow: hidden;
-  border-radius: 50%;
-  background: #fafafa;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: left;
+  color: #2d4059;
+}
+
+.RealForm .Fields {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.RealForm .Fields p {
+  color: #ea5455;
+}
+
+.RealForm .Fields .sexField, .RealForm .Fields .martialstatus, .RealForm .Fields .extrac {
+  width: 100%;
+  text-align: center;
+}
+
+.RealForm .Fields .sexField input, .RealForm .Fields .martialstatus input, .RealForm .Fields .extrac input {
+  margin-right: 5px;
+}
+
+.RealForm .Fields .InputField {
+  margin-top: 0.1em;
+  font-size: 0.9rem;
+  color: #2d4059;
+  text-align: left;
+  width: 100%;
+  margin-left: 10px;
+}
+
+.RealForm .Fields select {
+  background: #ffffff;
+}
+
+.RealForm .Fields input, .RealForm .Fields select {
+  outline: none;
+  border: none;
+  padding: 1em 2.5em;
+  border-bottom: 2px solid rgba(45, 64, 89, 0);
+  opacity: 1;
+  color: #2d4059;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin-bottom: 1em;
+}
+
+.RealForm .Fields input:focus, .RealForm .Fields select:focus {
+  -webkit-transition: .7s ease;
+  transition: .7s ease;
+  border-bottom: 2px solid #2d4059;
+}
+
+.ProfilePic {
   background: url("../../../Asset/icon.png");
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  margin-top: 1em;
 }
 
-.StudentAddForm .Form form .ProfilePhoto .Photo {
-  width: 100%;
+.ProfilePic .Image {
   height: 100%;
+  width: 100%;
+  border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+}
+
+.profilePictureAdd {
+  display: none;
+}
+
+@media only screen and (min-width: 960px) {
+  .ProfilePic {
+    width: 150px;
+    height: 150px;
+  }
+  .RealForm .Submit {
+    padding: 1em 2.5em;
+  }
+  .RealForm .MainHead {
+    font-size: 1.3rem;
+  }
+  .RealForm .Fields input {
+    padding: 1.3em 3em;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
 }
 /*# sourceMappingURL=StudentAdd.module.css.map */
