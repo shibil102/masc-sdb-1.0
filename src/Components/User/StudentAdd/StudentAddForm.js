@@ -8,8 +8,8 @@ const StudentAddForm = () => {
   const [guardienInfo, setGuardianInfo] = useState(false)
   const [QualificationInfo, setQualificationInfo] = useState(false)
   const [OtherInfo, setOtherInfo] = useState(false);
- let pic
-
+   let pic
+    const [bValue,setBValue] = useState('Submit')
 
 
 
@@ -60,13 +60,11 @@ let residence
 
 
 
-
-
-
   const token = localStorage.getItem('mascStudetDb');
 
    const postData = ()=>{
      if(pic){
+      
       console.log(bloodGroup);
       console.log(admissionSecured);
     fetch('student/newstudent', {
@@ -120,6 +118,8 @@ let residence
 
       else{
       console.log(responce);
+      alert('student added sucessfuly');
+      setBValue('Submit')
         setFname('');
         setLname('');
         setImage({});
@@ -143,6 +143,7 @@ let residence
    }
   
   const postPic = () => {
+    setBValue('Uploading...')
     //formdata object ||Currently its empty and more clarification go and read mozila doc you will understand much more about Formdata()
     console.log('in upload', image.imageUrl);
     const data = new FormData()
@@ -168,7 +169,10 @@ let residence
       }
 
      
-    }).catch(e => console.log('error in upload', e))
+    }).catch(e =>{
+      console.log('error in upload', e)
+      alert('something went wrong plz connect internet')
+    } )
   }
 
   const PersonInfoActivater = () => {
@@ -189,6 +193,7 @@ let residence
     setGuardianInfo(true)
     setQualificationInfo(true)
     setOtherInfo(true)
+   
 
   }
 
@@ -237,7 +242,7 @@ let residence
 
         <form onSubmit={(e) => {
           e.preventDefault()
-          console.log('clicked', e.target);
+          console.log('clicked', e.target[0].value);
         bloodGroup=e.target[14][0].value
           admissionSecured = e.target[35][0].value;
           residence = e.target[36][0].value;
@@ -246,7 +251,11 @@ let residence
           console.log('add',admissionSecured ,'res',residence,'sem',sem,'batch',batch,'dobs',
           dob,'sex',sex,'etc',etcActivity);
           
-           postPic()
+          if(!e.target[0].value) alert('select  photo')
+          else{
+            postPic()
+          }
+          
         //  postData()
 
          
@@ -636,7 +645,11 @@ let residence
           </div>
 
 
-          <input className={classes.Submit} type="submit" value="Submit" onClick={Submit} />
+          <input className={classes.Submit} type="submit" value={bValue}
+          disabled={bValue==='Uploading...'?true:false}
+          onClick={()=>{
+            Submit()
+            }} />
         </form>
       </div>
     </div>

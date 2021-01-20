@@ -7,6 +7,8 @@ import StudentAdd from './Components/User/StudentAdd/StudentAdd';
 import "./App.module.css";
 import { intialState, reducer } from "./reducer/Usereucer";
 import classes from "./App.module.css";
+import EditStudent from './Components/User/editStudent/EditStudent'
+
 
 export const UserContext = createContext();
 
@@ -42,6 +44,10 @@ const Routing = () => {
       <Route path="/addstudent">
         <StudentAdd />
       </Route>
+
+      <Route path="/editstudent">
+        <EditStudent />
+      </Route> 
     </Switch>
   );
 };
