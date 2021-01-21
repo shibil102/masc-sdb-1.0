@@ -253,7 +253,7 @@ const StudentAddForm = () => {
             <label htmlFor="firstName"
               className={classes.InputField} >FirstName</label>
             <input type="text"
-              /* pattern="[A-Za-z]" */
+              // pattern="[0-9]"
               required
               value={fName}
               onChange={e => setFname(e.target.value)}
