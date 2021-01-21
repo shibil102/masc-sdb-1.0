@@ -21,41 +21,46 @@
           flex-direction: column;
 }
 
-.AuthSection .Background {
-  width: 256px;
-  height: 256px;
-  -webkit-animation: float 6s ease-in-out infinite;
-          animation: float 6s ease-in-out infinite;
+.AuthSection .container {
+  margin-top: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-@-webkit-keyframes float {
-  0% {
-    -webkit-transform: translatey(0px);
-            transform: translatey(0px);
-  }
-  50% {
-    -webkit-transform: translatey(-20px);
-            transform: translatey(-20px);
-  }
-  100% {
-    -webkit-transform: translatey(0px);
-            transform: translatey(0px);
-  }
+.AuthSection .container .Logos img {
+  margin: 1em;
+  width: 125px;
+  height: 117px;
 }
 
-@keyframes float {
-  0% {
-    -webkit-transform: translatey(0px);
-            transform: translatey(0px);
-  }
-  50% {
-    -webkit-transform: translatey(-20px);
-            transform: translatey(-20px);
-  }
-  100% {
-    -webkit-transform: translatey(0px);
-            transform: translatey(0px);
-  }
+.AuthSection .container .Logos .iedc {
+  display: none;
+}
+
+.AuthSection .container .Logos .csdpt {
+  display: none;
+}
+
+.AuthSection .container .mainHead {
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+  font-size: 1.5rem;
+  color: #2d4059;
+}
+
+.AuthSection .container .paragraph {
+  color: #2d4059;
+  text-align: center;
+  letter-spacing: 1px;
+  width: 70%;
 }
 
 .AuthForm {
@@ -86,7 +91,8 @@
 }
 
 .AuthForm .Auth_Header h3 {
-  font-weight: 400;
+  margin-top: 1em;
+  font-weight: 600;
   letter-spacing: 1px;
   color: #2d4059;
 }
@@ -94,6 +100,7 @@
 .AuthForm .Auth_Header .subHead {
   color: #2d4059;
   letter-spacing: 1px;
+  display: none;
 }
 
 .AuthForm .Form {
@@ -197,6 +204,7 @@
     font-size: 1.5rem;
   }
   .AuthForm .Auth_Header .subHead {
+    display: block;
     padding-bottom: 0.5em;
     font-size: 1.2rem;
   }
@@ -217,9 +225,20 @@
     -ms-grid-column: 1;
     grid-area: image;
   }
-  .AuthSection .Background {
-    width: 512px;
-    height: 512px;
+  .AuthSection .container {
+    margin-top: -3.1em;
+  }
+  .AuthSection .container .Logos .iedc {
+    display: inline;
+  }
+  .AuthSection .container .Logos .csdpt {
+    display: inline;
+  }
+  .AuthSection .container .mainHead {
+    font-size: 2rem;
+  }
+  .AuthSection .container .paragraph {
+    font-size: 1.2rem;
   }
 }
 /*# sourceMappingURL=Auth.module.css.map */

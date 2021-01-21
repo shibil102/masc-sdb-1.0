@@ -276,7 +276,7 @@ const saveBtn = useRef()
     <div className={classes.StudentAddForm}>
       <div className={classes.EditButton} onClick={()=>{
             Edit();
-            saveBtnActive()
+            {editIco ? saveBtnActive() : Edit()}
       }} >
         {editIco ? <FaSave size="20px" color="#fafafa" /> : <FaPen size="20px" color="#fafafa" />}
       </div>
@@ -323,6 +323,7 @@ const saveBtn = useRef()
               className={classes.InputField} >FirstName</label>
             <input type="text"
               /* pattern="[A-Za-z]" */
+              disabled={editIco ? false : true }
               required
               value={fName}
               onChange={e => setFname(e.target.value)}
@@ -333,7 +334,7 @@ const saveBtn = useRef()
             <input type="text"
               // pattern="[A-Za-z]"
               required
-
+              disabled={editIco ? false : true }
               value={lName}
               onChange={e => setLname(e.target.value)}
             />
@@ -343,7 +344,7 @@ const saveBtn = useRef()
             <input type="text"
               /* pattern="[A-Za-z]" */
               required
-
+              disabled={editIco ? false : true }
               value={nameOfGuardian}
               onChange={e => setNameofGurdian(e.target.value)}
             />
@@ -353,6 +354,7 @@ const saveBtn = useRef()
             <input type="text"
               /* pattern="[A-Za-z]" */
               required
+              disabled={editIco ? false : true }
               value={homeName}
               onChange={e => setHomename(e.target.value)}
 
@@ -363,6 +365,7 @@ const saveBtn = useRef()
             <input type="text"
               /* pattern="[A-Za-z]" */
               required
+              disabled={editIco ? false : true }
               value={post}
               onChange={e => setPost(e.target.value)}
 
@@ -373,7 +376,7 @@ const saveBtn = useRef()
             <input type="text"
               /*  pattern="[A-Za-z]" */
               required
-
+              disabled={editIco ? false : true }
               value={city}
               onChange={e => setCity(e.target.value)}
             />
@@ -383,6 +386,7 @@ const saveBtn = useRef()
             <input type="number"
               /* pattern="[0-9]"
    */            required
+   disabled={editIco ? false : true }
               value={pincode}
               onChange={e => setPincode(e.target.value)}
 
@@ -393,6 +397,7 @@ const saveBtn = useRef()
             <input type="number"
               /* pattern="[0-9]"
    */            required
+   disabled={editIco ? false : true }
               value={mob1}
               onChange={e => setMob1(e.target.value)}
             />
@@ -402,7 +407,7 @@ const saveBtn = useRef()
             <input type="number"
               /* pattern="[0-9]"
    */
-
+  disabled={editIco ? false : true }
               value={mob2}
               onChange={e => setMob2(e.target.value)}
             />
@@ -411,7 +416,7 @@ const saveBtn = useRef()
               className={`${classes.InputField} ${classes.Dateofbirth}`} >DOB</label>
             <input type="date"
               required
-
+              disabled={editIco ? false : true }
               value={dob}
               
               onChange={e => {
@@ -422,7 +427,7 @@ const saveBtn = useRef()
             />
             <p>Sex</p>
             <div className={classes.sexField}>
-              <label for="sexinput" htmlFor="sexinput"
+              <label htmlFor="sexinput"
                 className={classes.InputField} >
                   
                 <input
@@ -432,7 +437,7 @@ const saveBtn = useRef()
                   name="sex"
                   required
                   checked={sex==='Male'?true:false}
-
+                  disabled={editIco ? false : true }
 
                   onClick={(e) => {
 
@@ -443,13 +448,14 @@ const saveBtn = useRef()
         Male
         </label>
 
-              <label for="sexinput" htmlFor="sexinput"
+              <label htmlFor="sexinputf"
                 className={classes.InputField}  >
                 <input
-                  id="sexinput"
+                  id="sexinputf"
                   type="radio"
                   value="Female"
                   name="sex"
+                  disabled={editIco ? false : true }
                   required
                   checked={sex==='Female'?true:false}
                   onClick={(e) => {
@@ -464,7 +470,7 @@ const saveBtn = useRef()
 
             <label htmlFor="bloodGroup"
               className={`${classes.InputField} ${classes.Dateofbirth}`} >Blood Group</label>
-            <select required >
+            <select required  disabled={editIco ? false : true } >
               <option value={blood}>{blood}</option>
               {console.log('insec',bloodGroup)}
               <option value="A- (Negative)">A- (Negative)</option>
@@ -480,7 +486,7 @@ const saveBtn = useRef()
 
             <label htmlFor="residence"
               className={classes.InputField} >Residence</label>
-            <select required >
+            <select required  disabled={editIco ? false : true } >
             <option value={live}>{live}</option>
               <option value="With Parent">With Parent</option>
               <option value="With Relatives">With Relatives</option>
@@ -493,6 +499,7 @@ const saveBtn = useRef()
               className={classes.InputField} >Relationship With Guardian</label>
             <input type="text"
               /* pattern="[A-Za-z]" */
+              disabled={editIco ? false : true }
               value={relationGuardin}
               onChange={e => {
 
@@ -505,6 +512,7 @@ const saveBtn = useRef()
               className={classes.InputField} >Ocupation of Guardien</label>
             <input type="text"
               /* pattern="[A-Za-z]" */
+              disabled={editIco ? false : true }
               required
               value={occupationOfGuardian}
               onChange={e => {
@@ -519,7 +527,7 @@ const saveBtn = useRef()
               className={classes.InputField} >Religion</label>
             <input type="text"
               required
-
+              disabled={editIco ? false : true }
               value={religion}
               onChange={e => {
 
@@ -533,7 +541,7 @@ const saveBtn = useRef()
               className={classes.InputField} >Cast</label>
             <input type="text"
               required
-
+              disabled={editIco ? false : true }
               value={cast}
               onChange={e => {
 
@@ -546,7 +554,7 @@ const saveBtn = useRef()
             <label htmlFor="mail"
               className={classes.InputField} >E-Mail</label>
             <input type="mail"
-
+ disabled={editIco ? false : true }
               value={email}
               onChange={e => {
 
@@ -557,7 +565,7 @@ const saveBtn = useRef()
 
             <p>Martial Status</p>
             <div className={classes.martialstatus}>
-              <label for="martial" htmlFor="martial"
+              <label htmlFor="martial"
                 className={classes.InputField} >
                 <input
                   id="martial"
@@ -565,21 +573,21 @@ const saveBtn = useRef()
                   value="True"
                   name="martial"
                   required
-
+                  disabled={editIco ? false : true }
                   onClick={() => setMaritalStatus(true)}
                 />
         True
         </label>
 
-              <label for="martial" htmlFor="martial"
+              <label  htmlFor="martialf"
                 className={classes.InputField} >
                 <input
-                  id="martial"
+                  id="martialf"
                   type="radio"
                   value="False"
                   name="martial"
                   required
-
+                  disabled={editIco ? false : true }
                   onClick={() => {
                     setMaritalStatus(false)
                     console.log(maritalStatus);
@@ -592,7 +600,7 @@ const saveBtn = useRef()
             <label htmlFor="specialproblem"
               className={classes.InputField} >Special Problem</label>
             <input type="text"
-
+ disabled={editIco ? false : true }
               value={specialProblem}
               onChange={e => {
                 setSpecialProblem(e.target.value)
@@ -604,7 +612,7 @@ const saveBtn = useRef()
             <label htmlFor="name"
               className={classes.InputField} >Name</label>
             <input type="text"
-
+ disabled={editIco ? false : true }
               value={responsibleGuardianName}
               onChange={e => {
                 setResponsibleGuardianName(e.target.value)
@@ -617,6 +625,7 @@ const saveBtn = useRef()
               className={classes.InputField} >Relationship</label>
             <input type="text"
               required
+              disabled={editIco ? false : true }
               value={responsibleGuardianRelation}
               onChange={e => {
                 setResponsibleGuardianRelation(e.target.value)
@@ -626,6 +635,7 @@ const saveBtn = useRef()
             <label htmlFor="age"
               className={classes.InputField} >Age</label>
             <input type="number"
+             disabled={editIco ? false : true }
               value={responsibleGuardianAge}
               onChange={e => {
                 setResponsibleGuardianAge(e.target.value)
@@ -636,6 +646,7 @@ const saveBtn = useRef()
             <label htmlFor="guardianmobno"
               className={classes.InputField} >Mobile Number</label>
             <input type="number"
+             disabled={editIco ? false : true }
               required
               value={responsibleGuardianMob}
               onChange={e => {
@@ -646,18 +657,20 @@ const saveBtn = useRef()
             <label htmlFor="occupation"
               className={classes.InputField} >Occupation</label>
             <input type="text"
+             disabled={editIco ? false : true }
             />
 
             <p className={classes.MainHead}>Qualification Info</p>
 
             <p>Extra Curricular Activities</p>
             <div className={classes.extrac}>
-              <label for="extrac" htmlFor="extrac"
+              <label  htmlFor="extracA"
                 className={classes.InputField} >
                 <input
-                  id="extrac"
+                  id="extracA"
                   type="checkbox"
                   value="Arts"
+                  disabled={editIco ? false : true }
                   name="extrac"
                   onChange={e => {
                     console.log(e.target.checked);
@@ -673,12 +686,13 @@ const saveBtn = useRef()
         Arts
         </label>
 
-              <label for="extrac" htmlFor="extrac"
+              <label  htmlFor="extracS"
                 className={classes.InputField} >
                 <input
-                  id="extrac"
+                  id="extracS"
                   type="checkbox"
                   value="Sports"
+                  disabled={editIco ? false : true }
                   name="extrac"
                   onChange={e => {
                     console.log(e.target.checked);
@@ -693,12 +707,13 @@ const saveBtn = useRef()
         Sports
         </label>
 
-              <label for="extrac" htmlFor="extrac"
+              <label  htmlFor="extracN"
                 className={classes.InputField} >
                 <input
-                  id="extrac"
+                  id="extracN"
                   type="checkbox"
                   value="NCC"
+                  disabled={editIco ? false : true }
                   name="extrac"
                   onChange={e => {
                     console.log(e.target.checked);
@@ -713,12 +728,13 @@ const saveBtn = useRef()
         NCC
         </label>
 
-              <label for="extrac" htmlFor="extrac"
+              <label  htmlFor="extracSS"
                 className={classes.InputField} >
                 <input
-                  id="extrac"
+                  id="extracSS"
                   type="checkbox"
                   value="NSS"
+                  disabled={editIco ? false : true }
                   name="extrac"
                   onChange={async e => {
                     console.log(e.target.checked);
@@ -737,34 +753,38 @@ const saveBtn = useRef()
             <label htmlFor="SpecialAchievments"
               className={classes.InputField} >Special Achievments</label>
             <input type="text"
+             disabled={editIco ? false : true }
               value={specialAchiev}
               onChange={e => setSpecialAchiev(e.target.value)}
             />
 
-            <label for="paper" htmlFor="paper"
+            <label htmlFor="paper"
               className={classes.InputField} >SSLC/CBSE mark (%)
       </label>
             <input
+             disabled={editIco ? false : true }
               type="number"
               required
               value={sslc}
               onChange={e => setSslc(e.target.value)}
             />
 
-            <label for="mark" htmlFor="sslcmark"
+            <label  htmlFor="hsemark"
               className={classes.InputField} >HSE Paper (,)
       </label>
             <input
               type="text"
+              disabled={editIco ? false : true }
               value={prevCourse}
               onChange={e => setPrevCourse(e.target.value)}
               required
             />
 
-            <label for="mark" htmlFor="hsemark"
+            <label  htmlFor="hsemark"
               className={classes.InputField} >HSE/CBSE mark (%)
       </label>
             <input
+             disabled={editIco ? false : true }
               type="number"
               required
               value={hss}
@@ -772,10 +792,11 @@ const saveBtn = useRef()
             />
 
 
-            <label for="institution" htmlFor="institution"
+            <label  htmlFor="institution"
               className={classes.InputField} >Institution last attended
       </label>
             <input
+             disabled={editIco ? false : true }
               type="text"
               value={prevShool}
               onChange={e => setPrevshool(e.target.value)}
@@ -786,7 +807,7 @@ const saveBtn = useRef()
 
             <label htmlFor="admissionsecured"
               className={classes.InputField}>admission secured</label>
-            <select required >
+            <select required  disabled={editIco ? false : true } >
               <option value="Management">Management</option>
               <option value="Merit">Merit</option>
               <option value="Muslim">Muslim</option>
@@ -797,7 +818,7 @@ const saveBtn = useRef()
 
             <label htmlFor="Course"
               className={classes.InputField}>Course</label>
-            <select required >
+            <select required  disabled={editIco ? false : true } >
               <option value="BSC computer science">BSC computer science</option>
               <option value="BSC Physics">BSC Physics</option>
               <option value="BSC Microbiology">BSC Microbiology</option>
@@ -817,30 +838,33 @@ const saveBtn = useRef()
               <option value="BA Malayalam">BA Malayalam</option>
             </select>
 
-            <label for="admno" htmlFor="admno"
+            <label  htmlFor="admno"
               className={classes.InputField} >Admission Number
       </label>
             <input
+             disabled={editIco ? false : true }
               type="number"
               required
               value={admno}
               onChange={e => setAdmno(e.target.value)}
             />
 
-            <label for="batch" htmlFor="batch"
+            <label  htmlFor="batch"
               className={classes.InputField} >Batch From
       </label>
             <input
+             disabled={editIco ? false : true }
               type="number"
               required
               value={from}
               onChange={e => setFrom(e.target.value)}
             />
 
-            <label for="batch" htmlFor="batch"
+            <label  htmlFor="batch"
               className={classes.InputField} >Batch To
       </label>
             <input
+             disabled={editIco ? false : true }
               type="number"
               required
               value={to}

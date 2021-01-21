@@ -1,4 +1,5 @@
 import React from 'react'
+import iedcLogo from '../../../Asset/iedc logo.png'
 import classes from './Footer.module.css'
 
 const Footer = () => {

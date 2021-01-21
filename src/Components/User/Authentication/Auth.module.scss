@@ -14,23 +14,39 @@ $PcHeadingSize: 1.5rem;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    .container{
+        margin-top: 1em;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        .Logos{
+            img{
+                margin: 1em;
+                width: 125px;
+                height: 117px;
+            }
+            .iedc{
+                display: none;
+            }
+            .csdpt{
+                display: none;
+            }
+        }
     
-    .Background{
-        width: 256px;
-        height: 256px;
-        animation: float 6s ease-in-out infinite;
-    }
-    @keyframes float {
-        0% {
-            transform: translatey(0px);
+        .mainHead{
+            margin-bottom: 0.5em;
+            margin-top: 0.5em;
+            font-size: $PcHeadingSize;
+            color: $SeconderyColor;
         }
-        50% {
-            transform: translatey(-20px);
-        }
-        100% {
-            transform: translatey(0px);
+        .paragraph{
+            color: $SeconderyColor;
+            text-align: center;
+            letter-spacing: 1px;
+            width: 70%;
         }
     }
+ 
 }
 .AuthForm{
    display: grid;
@@ -43,13 +59,15 @@ $PcHeadingSize: 1.5rem;
        align-items: center;
        flex-direction: column;
     h3{
-        font-weight: 400;
+        margin-top: 1em;
+        font-weight: 600;
         letter-spacing: 1px;
         color: $SeconderyColor;
     }
     .subHead{
         color: $SeconderyColor;
         letter-spacing: 1px;
+        display: none;
     }
 
    }
@@ -105,6 +123,7 @@ $PcHeadingSize: 1.5rem;
         grid-template-rows:1fr 1fr;
         grid-template-columns: 1fr 1fr;
         grid-template-areas: "image login" "image login";
+       
     }
     .AuthForm{
         display: flex;
@@ -116,6 +135,7 @@ $PcHeadingSize: 1.5rem;
                 font-size: $PcHeadingSize;
             }
             .subHead{
+                display: block;
                 padding-bottom: 0.5em;
                 font-size: $PcUltraSmallText;
             }
@@ -136,15 +156,32 @@ $PcHeadingSize: 1.5rem;
             }
            
         }
+       
     }
     .AuthSection{
         grid-area: image;
-        .Background{
-            width: 512px;
-            height: 512px;
-
+    
+       
+        .container{
+            margin-top: -3.1em;
+            .Logos{
+                .iedc{
+                    display: inline;
+                }
+                .csdpt{
+        display: inline;
+                }
+            }
+            .mainHead{
+                font-size: 2rem;
+            }
+            .paragraph{
+font-size: 1.2rem;
+            }
         }
+        
     }
+    
 }
 
 

@@ -361,10 +361,10 @@ const StudentAddForm = () => {
             
             <p>Sex</p>
             <div className={classes.sexField}>
-              <label for="sexinput" htmlFor="sexinput"
+              <label  htmlFor="sexinputm"
                 className={classes.InputField} >
                 <input
-                  id="sexinput"
+                  id="sexinputm"
                   type="radio"
                   value="Male"
                   name="sex"
@@ -379,10 +379,10 @@ const StudentAddForm = () => {
         Male
         </label>
 
-              <label for="sexinput" htmlFor="sexinput"
+              <label htmlFor="sexinputf"
                 className={classes.InputField}  >
                 <input
-                  id="sexinput"
+                  id="sexinputf"
                   type="radio"
                   value="Female"
                   name="sex"
@@ -490,10 +490,10 @@ const StudentAddForm = () => {
 
             <p>Martial Status</p>
             <div className={classes.martialstatus}>
-              <label for="martial" htmlFor="martial"
+              <label htmlFor="martialt"
                 className={classes.InputField} >
                 <input
-                  id="martial"
+                  id="martialt"
                   type="radio"
                   value="True"
                   name="martial"
@@ -504,10 +504,10 @@ const StudentAddForm = () => {
         True
         </label>
 
-              <label for="martial" htmlFor="martial"
+              <label  htmlFor="martialf"
                 className={classes.InputField} >
                 <input
-                  id="martial"
+                  id="martialf"
                   type="radio"
                   value="False"
                   name="martial"
@@ -585,10 +585,10 @@ const StudentAddForm = () => {
 
             <p>Extra Curricular Activities</p>
             <div className={classes.extrac}>
-              <label for="extrac" htmlFor="extrac"
+              <label htmlFor="extracA"
                 className={classes.InputField} >
                 <input
-                  id="extrac"
+                  id="extracA"
                   type="checkbox"
                   value="Arts"
                   name="extrac"
@@ -606,10 +606,10 @@ const StudentAddForm = () => {
         Arts
         </label>
 
-              <label for="extrac" htmlFor="extrac"
+              <label  htmlFor="extracS"
                 className={classes.InputField} >
                 <input
-                  id="extrac"
+                  id="extracS"
                   type="checkbox"
                   value="Sports"
                   name="extrac"
@@ -626,10 +626,10 @@ const StudentAddForm = () => {
         Sports
         </label>
 
-              <label for="extrac" htmlFor="extrac"
+              <label  htmlFor="extracN"
                 className={classes.InputField} >
                 <input
-                  id="extrac"
+                  id="extracN"
                   type="checkbox"
                   value="NCC"
                   name="extrac"
@@ -646,10 +646,10 @@ const StudentAddForm = () => {
         NCC
         </label>
 
-              <label for="extrac" htmlFor="extrac"
+              <label htmlFor="extracSS"
                 className={classes.InputField} >
                 <input
-                  id="extrac"
+                  id="extracSS"
                   type="checkbox"
                   value="NSS"
                   name="extrac"
@@ -674,7 +674,7 @@ const StudentAddForm = () => {
               onChange={e => setSpecialAchiev(e.target.value)}
             />
 
-            <label for="paper" htmlFor="paper"
+            <label  htmlFor="paper"
               className={classes.InputField} >SSLC/CBSE mark (%)
       </label>
             <input
@@ -684,7 +684,7 @@ const StudentAddForm = () => {
               onChange={e => setSslc(e.target.value)}
             />
 
-            <label for="mark" htmlFor="sslcmark"
+            <label  htmlFor="sslcmark"
               className={classes.InputField} >HSE Paper (,)
       </label>
             <input
@@ -694,7 +694,7 @@ const StudentAddForm = () => {
               required
             />
 
-            <label for="mark" htmlFor="hsemark"
+            <label htmlFor="hsemark"
               className={classes.InputField} >HSE/CBSE mark (%)
       </label>
             <input
@@ -705,7 +705,7 @@ const StudentAddForm = () => {
             />
 
 
-            <label for="institution" htmlFor="institution"
+            <label htmlFor="institution"
               className={classes.InputField} >Institution last attended
       </label>
             <input
@@ -750,7 +750,7 @@ const StudentAddForm = () => {
               <option value="BA Malayalam">BA Malayalam</option>
             </select>
 
-            <label for="admno" htmlFor="admno"
+            <label  htmlFor="admno"
               className={classes.InputField} >Admission Number
       </label>
             <input
@@ -760,7 +760,7 @@ const StudentAddForm = () => {
               onChange={e => setAdmno(e.target.value)}
             />
 
-            <label for="batch" htmlFor="batch"
+            <label  htmlFor="batch"
               className={classes.InputField} >Batch From
       </label>
             <input
@@ -770,7 +770,7 @@ const StudentAddForm = () => {
               onChange={e => setFrom(e.target.value)}
             />
 
-            <label for="batch" htmlFor="batch"
+            <label  htmlFor="batch"
               className={classes.InputField} >Batch To
       </label>
             <input
