@@ -1,8 +1,9 @@
 import React, { useRef, useState } from 'react'
 import classes from './StudentAdd.module.css'
 import { cloud } from './key'
+import {useHistory} from 'react-router-dom'
 const StudentAddForm = () => {
-
+   
   let pic
   const [bValue, setBValue] = useState('Submit');
   const [admno, setAdmno] = useState('')
@@ -28,13 +29,13 @@ const StudentAddForm = () => {
   const [relationGuardin, setRelationGuardin] = useState('');
   const [occupationOfGuardian, setOccuptinofGurdian] = useState('');
   const [ageOfGuardian, setAgeOfGuardian] = useState('')
- let course
+  let course
   let sem
   let batch
   const [sslc, setSslc] = useState('');
   const [email, setEmail] = useState('');
   const [hss, setHss] = useState('');
-  const [etcActivity,setEtcActivity] = useState([])
+  const [etcActivity, setEtcActivity] = useState([])
   let etc = []
   let residence
   const [religion, setReligion] = useState('');
@@ -110,8 +111,10 @@ const StudentAddForm = () => {
           email
         })
       }).then(res => res.json()).then(responce => {
-        if (responce.error) alert(responce.error)
-
+        if (responce.error) {
+          alert(responce.error)
+          setBValue('Submit')
+        }
         else {
           console.log(responce);
           alert('student added sucessfuly');
@@ -215,6 +218,7 @@ const StudentAddForm = () => {
         <form
           onSubmit={(e) => {
             e.preventDefault()
+
             console.log('clicked', e.target);
             bloodGroup = e.target[13][0].value
             admissionSecured = e.target[37][0].value;
@@ -227,8 +231,10 @@ const StudentAddForm = () => {
 
             if (!e.target[0].value) alert('select  photo')
             else {
-               postPic()
-              // postData()
+              setBValue('Uploading...')
+              postPic()
+
+              //  postData()
             }
 
 
@@ -253,7 +259,7 @@ const StudentAddForm = () => {
             <label htmlFor="firstName"
               className={classes.InputField} >FirstName</label>
             <input type="text"
-              // pattern="[0-9]"
+              /* pattern="[A-Za-z]" */
               required
               value={fName}
               onChange={e => setFname(e.target.value)}
@@ -340,6 +346,7 @@ const StudentAddForm = () => {
 
             <label htmlFor="dob"
               className={`${classes.InputField} ${classes.Dateofbirth}`} >DOB</label>
+
             <input type="date"
               required
 
@@ -349,7 +356,9 @@ const StudentAddForm = () => {
                 setDob(e.target.value)
                 console.log('dobs', dob);
               }}
-            />
+            /> 
+
+            
             <p>Sex</p>
             <div className={classes.sexField}>
               <label for="sexinput" htmlFor="sexinput"
@@ -550,10 +559,10 @@ const StudentAddForm = () => {
             <label htmlFor="age"
               className={classes.InputField} >Age</label>
             <input type="number"
-             value={responsibleGuardianAge}
-             onChange={e => {
-               setResponsibleGuardianAge(e.target.value)
-             }}
+              value={responsibleGuardianAge}
+              onChange={e => {
+                setResponsibleGuardianAge(e.target.value)
+              }}
               required
             />
 
@@ -583,14 +592,14 @@ const StudentAddForm = () => {
                   type="checkbox"
                   value="Arts"
                   name="extrac"
-                  onChange={e=>{
+                  onChange={e => {
                     console.log(e.target.checked);
-                    e.target.checked?etc.push(e.target.value):
-                    etc = etc.filter(function(item) {
-                      return item !== e.target.value
-                  })
-                
-                  console.log('etc',etc);
+                    e.target.checked ? etc.push(e.target.value) :
+                      etc = etc.filter(function (item) {
+                        return item !== e.target.value
+                      })
+
+                    console.log('etc', etc);
                   }}
 
                 />
@@ -604,13 +613,13 @@ const StudentAddForm = () => {
                   type="checkbox"
                   value="Sports"
                   name="extrac"
-                  onChange={e=>{
+                  onChange={e => {
                     console.log(e.target.checked);
-                    e.target.checked?etc.push(e.target.value):
-                    etc = etc.filter(function(item) {
-                      return item !== e.target.value
-                  })
-                  console.log('etc',etc);
+                    e.target.checked ? etc.push(e.target.value) :
+                      etc = etc.filter(function (item) {
+                        return item !== e.target.value
+                      })
+                    console.log('etc', etc);
 
                   }}
                 />
@@ -624,13 +633,13 @@ const StudentAddForm = () => {
                   type="checkbox"
                   value="NCC"
                   name="extrac"
-                  onChange={e=>{
+                  onChange={e => {
                     console.log(e.target.checked);
-                    e.target.checked?etc.push(e.target.value):
-                    etc = etc.filter(function(item) {
-                      return item !== e.target.value
-                  })
-                  console.log('etc',etc);
+                    e.target.checked ? etc.push(e.target.value) :
+                      etc = etc.filter(function (item) {
+                        return item !== e.target.value
+                      })
+                    console.log('etc', etc);
 
                   }}
                 />
@@ -644,14 +653,14 @@ const StudentAddForm = () => {
                   type="checkbox"
                   value="NSS"
                   name="extrac"
-                  onChange={async e=>{
+                  onChange={async e => {
                     console.log(e.target.checked);
-                    e.target.checked?etc.push(e.target.value):
-                    etc = etc.filter(function(item) {
-                      return item !== e.target.value
-                  })
-          
-                  console.log('etc',etc,'a',etcActivity);
+                    e.target.checked ? etc.push(e.target.value) :
+                      etc = etc.filter(function (item) {
+                        return item !== e.target.value
+                      })
+
+                    console.log('etc', etc, 'a', etcActivity);
                   }}
                 />
         NSS
@@ -661,8 +670,8 @@ const StudentAddForm = () => {
             <label htmlFor="SpecialAchievments"
               className={classes.InputField} >Special Achievments</label>
             <input type="text"
-            value={specialAchiev}
-            onChange={e=>setSpecialAchiev(e.target.value)}
+              value={specialAchiev}
+              onChange={e => setSpecialAchiev(e.target.value)}
             />
 
             <label for="paper" htmlFor="paper"
@@ -672,7 +681,7 @@ const StudentAddForm = () => {
               type="number"
               required
               value={sslc}
-            onChange={e=>setSslc(e.target.value)}
+              onChange={e => setSslc(e.target.value)}
             />
 
             <label for="mark" htmlFor="sslcmark"
@@ -681,7 +690,7 @@ const StudentAddForm = () => {
             <input
               type="text"
               value={prevCourse}
-            onChange={e=>setPrevCourse(e.target.value)}
+              onChange={e => setPrevCourse(e.target.value)}
               required
             />
 
@@ -692,7 +701,7 @@ const StudentAddForm = () => {
               type="number"
               required
               value={hss}
-            onChange={e=>setHss(e.target.value)}
+              onChange={e => setHss(e.target.value)}
             />
 
 
@@ -702,7 +711,7 @@ const StudentAddForm = () => {
             <input
               type="text"
               value={prevShool}
-            onChange={e=>setPrevshool(e.target.value)}
+              onChange={e => setPrevshool(e.target.value)}
               required
             />
 
@@ -748,7 +757,7 @@ const StudentAddForm = () => {
               type="number"
               required
               value={admno}
-            onChange={e=>setAdmno(e.target.value)}
+              onChange={e => setAdmno(e.target.value)}
             />
 
             <label for="batch" htmlFor="batch"
@@ -758,7 +767,7 @@ const StudentAddForm = () => {
               type="number"
               required
               value={from}
-            onChange={e=>setFrom(e.target.value)}
+              onChange={e => setFrom(e.target.value)}
             />
 
             <label for="batch" htmlFor="batch"
@@ -768,13 +777,13 @@ const StudentAddForm = () => {
               type="number"
               required
               value={to}
-            onChange={e=>setTo(e.target.value)}
+              onChange={e => setTo(e.target.value)}
             />
 
           </div>
-          <input type="submit" value={bValue} 
+          <input type="submit" value={bValue}
             disabled={bValue === 'Uploading...' ? true : false}
-          className={classes.Submit} />
+            className={classes.Submit} />
         </form>
       </div>
     </div>

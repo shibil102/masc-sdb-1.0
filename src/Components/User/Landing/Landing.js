@@ -51,6 +51,7 @@ const Landing = () => {
                                 batch={user.batch}
                                 programme={user.course}
                                 pic = {user.pic}
+                                id={user._id}
                             />
 
                         )

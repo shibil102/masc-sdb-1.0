@@ -1,9 +1,10 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import classes from './EditStudent.module.css'
 import { FaSave, FaPen } from "react-icons/fa";
 import { cloud } from '../StudentAdd/key'
+import { useParams } from 'react-router-dom'
 const StudentEditForm = () => {
-
+  const { id } = useParams()
   const [editIco, setEditIco] = useState(false)
 
   let pic
@@ -19,6 +20,7 @@ const StudentEditForm = () => {
   const [mob2, setMob2] = useState('');
   const [dob, setDob] = useState('')
   const [sex, setSex] = useState('')
+  const [blood,setBlood] = useState('')
   let bloodGroup;
   let admissionSecured;
   const [nameOfGuardian, setNameofGurdian] = useState('');
@@ -31,20 +33,20 @@ const StudentEditForm = () => {
   const [relationGuardin, setRelationGuardin] = useState('');
   const [occupationOfGuardian, setOccuptinofGurdian] = useState('');
   const [ageOfGuardian, setAgeOfGuardian] = useState('')
- let course
+  let course
   let sem
   let batch
   const [sslc, setSslc] = useState('');
   const [email, setEmail] = useState('');
   const [hss, setHss] = useState('');
-  const [etcActivity,setEtcActivity] = useState([])
+  const [etcActivity, setEtcActivity] = useState([])
   let etc = []
   let residence
   const [religion, setReligion] = useState('');
   const [cast, setCast] = useState('');
   const [prevShool, setPrevshool] = useState('');
 
-  const [recommanted, setRecommanted] = useState('');
+  const [live, setLive] = useState('');
   const [responsibleGuardianName, setResponsibleGuardianName] = useState('');
   const [responsibleGuardianAge, setResponsibleGuardianAge] = useState('');
   const [responsibleGuardianMob, setResponsibleGuardianMob] = useState('');
@@ -57,9 +59,9 @@ const StudentEditForm = () => {
   const [to, setTo] = useState('')
   const [prevCourse, setPrevCourse] = useState('')
 
-const Edit = () => {
-setEditIco(!editIco)
-}
+  const Edit = () => {
+    setEditIco(!editIco)
+  }
 
   const token = localStorage.getItem('mascStudetDb');
 
@@ -68,7 +70,7 @@ setEditIco(!editIco)
 
       console.log(bloodGroup);
       console.log(admissionSecured);
-      fetch('student/newstudent', {
+      fetch('student/editstudent', {
         method: 'Post',
         headers: {
           'Content-Type': 'application/json',
@@ -97,7 +99,6 @@ setEditIco(!editIco)
           religion,
           prevShool,
           residence,
-          recommanted,
           responsibleGuardianName,
           responsibleGuardianAge,
           responsibleGuardianMob,
@@ -176,7 +177,58 @@ setEditIco(!editIco)
     })
   }
 
+  useEffect(() => {
+    console.log(id);
+    fetch(`/profile/${id}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        "authorization": token.replace(/['"]+/g, '')
+      }
 
+    }).then(res => res.json()).then(responce => {
+      console.log(responce);
+      setFname(responce.fName);
+      setLname(responce.lName);
+      setNameofGurdian(responce.nameOfGuardian);
+      setHomename(responce.addressOfGuardian.homeName);
+      setPost(responce.addressOfGuardian.post);
+      setCity(responce.addressOfGuardian.city);
+      setPincode(responce.addressOfGuardian.pincode);
+      setMob1(responce.mob1);
+      setMob2(responce.mob2);
+      setDob(responce.dob);
+      setSex(responce.sex)
+      setBlood(responce.bloodGroup)
+      setLive(responce.residence);
+      setRelationGuardin(responce.relationGuardin)
+      setOccuptinofGurdian(responce.occupationOfGuardian)
+      setReligion(responce.religion);
+      setCast(responce.cast);
+      setEmail(responce.email);
+      setSpecialProblem(responce.specialProblem);
+      setResponsibleGuardianName(responce.responsibleGuardian.name);
+      setResponsibleGuardianRelation(responce.responsibleGuardian.relation);
+      setResponsibleGuardianAge(responce.responsibleGuardian.age);
+      setResponsibleGuardianMob(responce.responsibleGuardian.mob);
+      setresponsibleGuardianOccupation(responce.responsibleGuardian.occupation);
+      setSpecialAchiev(responce.responsibleGuardian.specialAchiev);
+      setSslc(responce.sslc)
+      setHss(responce.hss);
+      setPrevCourse(responce.prevCourse);
+      setPrevshool(responce.prevShool);
+      setAdmno(responce.admno);
+      setFrom(responce.from);
+      setTo(responce.to)
+      setImage({
+        imageUrl:responce.pic
+      })
+
+
+
+      console.log(blood);
+    })
+
+  }, [])
 
   const [image, setImage] = useState({
     imageUrl: undefined,
@@ -208,17 +260,26 @@ setEditIco(!editIco)
       }
     }
   };
+const saveBtn = useRef()
+
   const profileclick = useRef();
 
   const ProfileClickFun = () => {
     profileclick.current.click();
   }
+
+  const saveBtnActive = () => {
+    saveBtn.current.click()
+  }
   return (
 
     <div className={classes.StudentAddForm}>
-      <div className={classes.EditButton} onClick={Edit} >
-    {editIco ? <FaSave size="20px" color="#fafafa" /> : <FaPen size="20px" color="#fafafa" />}
-</div>
+      <div className={classes.EditButton} onClick={()=>{
+            Edit();
+            saveBtnActive()
+      }} >
+        {editIco ? <FaSave size="20px" color="#fafafa" /> : <FaPen size="20px" color="#fafafa" />}
+      </div>
       <div className={classes.Form}>
         <form
           onSubmit={(e) => {
@@ -235,7 +296,7 @@ setEditIco(!editIco)
 
             if (!e.target[0].value) alert('select  photo')
             else {
-               postPic()
+              postPic()
               // postData()
             }
 
@@ -352,6 +413,7 @@ setEditIco(!editIco)
               required
 
               value={dob}
+              
               onChange={e => {
 
                 setDob(e.target.value)
@@ -362,17 +424,20 @@ setEditIco(!editIco)
             <div className={classes.sexField}>
               <label for="sexinput" htmlFor="sexinput"
                 className={classes.InputField} >
+                  
                 <input
                   id="sexinput"
                   type="radio"
                   value="Male"
                   name="sex"
                   required
+                  checked={sex==='Male'?true:false}
+
 
                   onClick={(e) => {
 
                     setSex(e.target.value)
-                    console.log('male', sex)
+                    console.log('Male', sex)
                   }}
                 />
         Male
@@ -386,7 +451,7 @@ setEditIco(!editIco)
                   value="Female"
                   name="sex"
                   required
-
+                  checked={sex==='Female'?true:false}
                   onClick={(e) => {
 
                     setSex(e.target.value)
@@ -400,8 +465,10 @@ setEditIco(!editIco)
             <label htmlFor="bloodGroup"
               className={`${classes.InputField} ${classes.Dateofbirth}`} >Blood Group</label>
             <select required >
-              <option value="A+ (Positive)">A+ (Positive)</option>
+              <option value={blood}>{blood}</option>
+              {console.log('insec',bloodGroup)}
               <option value="A- (Negative)">A- (Negative)</option>
+              <option value="A+ (Positive)">A+ (Positive)</option>
               <option value="B+ (Positive)">B+ (Positive)</option>
               <option value="B- (Negative)">B- (Negative)</option>
               <option value="O+ (Positive)">O+ (Positive)</option>
@@ -414,6 +481,7 @@ setEditIco(!editIco)
             <label htmlFor="residence"
               className={classes.InputField} >Residence</label>
             <select required >
+            <option value={live}>{live}</option>
               <option value="With Parent">With Parent</option>
               <option value="With Relatives">With Relatives</option>
               <option value="College Hostel">College Hostel</option>
@@ -558,10 +626,10 @@ setEditIco(!editIco)
             <label htmlFor="age"
               className={classes.InputField} >Age</label>
             <input type="number"
-             value={responsibleGuardianAge}
-             onChange={e => {
-               setResponsibleGuardianAge(e.target.value)
-             }}
+              value={responsibleGuardianAge}
+              onChange={e => {
+                setResponsibleGuardianAge(e.target.value)
+              }}
               required
             />
 
@@ -591,14 +659,14 @@ setEditIco(!editIco)
                   type="checkbox"
                   value="Arts"
                   name="extrac"
-                  onChange={e=>{
+                  onChange={e => {
                     console.log(e.target.checked);
-                    e.target.checked?etc.push(e.target.value):
-                    etc = etc.filter(function(item) {
-                      return item !== e.target.value
-                  })
-                
-                  console.log('etc',etc);
+                    e.target.checked ? etc.push(e.target.value) :
+                      etc = etc.filter(function (item) {
+                        return item !== e.target.value
+                      })
+
+                    console.log('etc', etc);
                   }}
 
                 />
@@ -612,13 +680,13 @@ setEditIco(!editIco)
                   type="checkbox"
                   value="Sports"
                   name="extrac"
-                  onChange={e=>{
+                  onChange={e => {
                     console.log(e.target.checked);
-                    e.target.checked?etc.push(e.target.value):
-                    etc = etc.filter(function(item) {
-                      return item !== e.target.value
-                  })
-                  console.log('etc',etc);
+                    e.target.checked ? etc.push(e.target.value) :
+                      etc = etc.filter(function (item) {
+                        return item !== e.target.value
+                      })
+                    console.log('etc', etc);
 
                   }}
                 />
@@ -632,13 +700,13 @@ setEditIco(!editIco)
                   type="checkbox"
                   value="NCC"
                   name="extrac"
-                  onChange={e=>{
+                  onChange={e => {
                     console.log(e.target.checked);
-                    e.target.checked?etc.push(e.target.value):
-                    etc = etc.filter(function(item) {
-                      return item !== e.target.value
-                  })
-                  console.log('etc',etc);
+                    e.target.checked ? etc.push(e.target.value) :
+                      etc = etc.filter(function (item) {
+                        return item !== e.target.value
+                      })
+                    console.log('etc', etc);
 
                   }}
                 />
@@ -652,14 +720,14 @@ setEditIco(!editIco)
                   type="checkbox"
                   value="NSS"
                   name="extrac"
-                  onChange={async e=>{
+                  onChange={async e => {
                     console.log(e.target.checked);
-                    e.target.checked?etc.push(e.target.value):
-                    etc = etc.filter(function(item) {
-                      return item !== e.target.value
-                  })
-          
-                  console.log('etc',etc,'a',etcActivity);
+                    e.target.checked ? etc.push(e.target.value) :
+                      etc = etc.filter(function (item) {
+                        return item !== e.target.value
+                      })
+
+                    console.log('etc', etc, 'a', etcActivity);
                   }}
                 />
         NSS
@@ -669,8 +737,8 @@ setEditIco(!editIco)
             <label htmlFor="SpecialAchievments"
               className={classes.InputField} >Special Achievments</label>
             <input type="text"
-            value={specialAchiev}
-            onChange={e=>setSpecialAchiev(e.target.value)}
+              value={specialAchiev}
+              onChange={e => setSpecialAchiev(e.target.value)}
             />
 
             <label for="paper" htmlFor="paper"
@@ -680,7 +748,7 @@ setEditIco(!editIco)
               type="number"
               required
               value={sslc}
-            onChange={e=>setSslc(e.target.value)}
+              onChange={e => setSslc(e.target.value)}
             />
 
             <label for="mark" htmlFor="sslcmark"
@@ -689,7 +757,7 @@ setEditIco(!editIco)
             <input
               type="text"
               value={prevCourse}
-            onChange={e=>setPrevCourse(e.target.value)}
+              onChange={e => setPrevCourse(e.target.value)}
               required
             />
 
@@ -700,7 +768,7 @@ setEditIco(!editIco)
               type="number"
               required
               value={hss}
-            onChange={e=>setHss(e.target.value)}
+              onChange={e => setHss(e.target.value)}
             />
 
 
@@ -710,7 +778,7 @@ setEditIco(!editIco)
             <input
               type="text"
               value={prevShool}
-            onChange={e=>setPrevshool(e.target.value)}
+              onChange={e => setPrevshool(e.target.value)}
               required
             />
 
@@ -756,7 +824,7 @@ setEditIco(!editIco)
               type="number"
               required
               value={admno}
-            onChange={e=>setAdmno(e.target.value)}
+              onChange={e => setAdmno(e.target.value)}
             />
 
             <label for="batch" htmlFor="batch"
@@ -766,7 +834,7 @@ setEditIco(!editIco)
               type="number"
               required
               value={from}
-            onChange={e=>setFrom(e.target.value)}
+              onChange={e => setFrom(e.target.value)}
             />
 
             <label for="batch" htmlFor="batch"
@@ -776,13 +844,13 @@ setEditIco(!editIco)
               type="number"
               required
               value={to}
-            onChange={e=>setTo(e.target.value)}
+              onChange={e => setTo(e.target.value)}
             />
 
           </div>
-          <input type="submit" value={bValue} 
+          <input   ref={saveBtn} type="submit" value={bValue}
             disabled={bValue === 'Uploading...' ? true : false}
-          className={classes.Submit} />
+            className={classes.Submit} />
         </form>
       </div>
     </div>

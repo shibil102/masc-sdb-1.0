@@ -6,7 +6,7 @@ const StudentCard = (props) => {
     return (
 
         <div onClick={() => {
-            history.push('/editstudent')
+            history.push(`/editstudent/${props.id}`)
         }} className={classes.StudentCardContainer} >
             <div className={classes.StudentPhoto}>
                 <div className={classes.Photo}>

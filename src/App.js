@@ -45,7 +45,7 @@ const Routing = () => {
         <StudentAdd />
       </Route>
 
-      <Route path="/editstudent">
+      <Route  path="/editstudent/:id">
         <EditStudent />
       </Route> 
     </Switch>
