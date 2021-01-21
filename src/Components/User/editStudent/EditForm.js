@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react'
 import classes from './EditStudent.module.css'
-import { FaSave, FaPen } from "react-icons/fa";
+import { FaPen } from "react-icons/fa";
 import { cloud } from '../StudentAdd/key'
 import { useParams } from 'react-router-dom'
 const StudentEditForm = () => {
@@ -276,9 +276,14 @@ const saveBtn = useRef()
     <div className={classes.StudentAddForm}>
       <div className={classes.EditButton} onClick={()=>{
             Edit();
-            {editIco ? saveBtnActive() : Edit()}
+            {
+              if(
+                editIco === true
+              )
+              saveBtnActive()
+            }
       }} >
-        {editIco ? <FaSave size="20px" color="#fafafa" /> : <FaPen size="20px" color="#fafafa" />}
+        <FaPen size="20px" color="#fafafa" /> 
       </div>
       <div className={classes.Form}>
         <form
@@ -872,9 +877,12 @@ const saveBtn = useRef()
             />
 
           </div>
-          <input   ref={saveBtn} type="submit" value={bValue}
+          {
+            editIco ? <input   ref={saveBtn} type="submit" value={bValue}
             disabled={bValue === 'Uploading...' ? true : false}
-            className={classes.Submit} />
+            className={classes.Submit} /> : null
+          }
+          
         </form>
       </div>
     </div>
