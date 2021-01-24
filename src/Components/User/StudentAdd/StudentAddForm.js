@@ -64,7 +64,7 @@ const StudentAddForm = () => {
 
       console.log(bloodGroup);
       console.log(admissionSecured);
-      fetch('student/newstudent', {
+      fetch('https://mascsdb.herokuapp.com/student/newstudent', {
         method: 'Post',
         headers: {
           'Content-Type': 'application/json',
@@ -108,7 +108,8 @@ const StudentAddForm = () => {
           specialProblem,
           prevCourse,
           admissionSecured,
-          email
+          email,
+          admno
         })
       }).then(res => res.json()).then(responce => {
         if (responce.error) {

@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
+import {useHistory} from 'react-router-dom'
 import classes from './EditStudent.module.css'
 import { FaPen } from "react-icons/fa";
 import { cloud } from '../StudentAdd/key'
@@ -6,7 +7,7 @@ import { useParams } from 'react-router-dom'
 const StudentEditForm = () => {
   const { id } = useParams()
   const [editIco, setEditIco] = useState(false)
-
+const  history = useHistory()
   let pic
   const [bValue, setBValue] = useState('Submit');
   const [admno, setAdmno] = useState('')
@@ -66,18 +67,19 @@ const StudentEditForm = () => {
   const token = localStorage.getItem('mascStudetDb');
 
   const postData = () => {
-    if (pic) {
+
 
       console.log(bloodGroup);
       console.log(admissionSecured);
-      fetch('student/editstudent', {
-        method: 'Post',
+      fetch('https://mascsdb.herokuapp.com/student/editstudent', {
+        method: 'Put',
         headers: {
           'Content-Type': 'application/json',
           "authorization": token.replace(/['"]+/g, '')
         },
         body: JSON.stringify({
           lName,
+          id,
           fName,
           course,
           sex,
@@ -90,7 +92,6 @@ const StudentEditForm = () => {
           occupationOfGuardian,
           batch,
           sslc,
-          pic,
           homeName,
           pincode,
           post,
@@ -120,29 +121,13 @@ const StudentEditForm = () => {
 
         else {
           console.log(responce);
-          alert('student added sucessfuly');
-          setBValue('Submit')
-          setFname('');
-          setLname('');
-          setImage({});
-          setHomename('');
-          setPost('');
-          pic = ''
-          setPincode('');
-          setCity('');
-          setEmail('');
-          setCity('');
-          setMob1('');
-          setMob2('');
-          setDob('')
-
+          alert('student updated sucessfuly');
+        history.push("/")
         }
       }).catch(e => {
         console.log(e);
       })
-    } else {
-      alert('select a photo')
-    }
+   
   }
   const postPic = () => {
     setBValue('Uploading...')
@@ -179,7 +164,7 @@ const StudentEditForm = () => {
 
   useEffect(() => {
     console.log(id);
-    fetch(`/profile/${id}`, {
+    fetch(`https://mascsdb.herokuapp.com/profile/${id}`, {
       headers: {
         'Content-Type': 'application/json',
         "authorization": token.replace(/['"]+/g, '')
@@ -289,6 +274,7 @@ const saveBtn = useRef()
         <form
           onSubmit={(e) => {
             e.preventDefault()
+            setBValue('Uploading...')
             console.log('clicked', e.target);
             bloodGroup = e.target[13][0].value
             admissionSecured = e.target[37][0].value;
@@ -299,11 +285,10 @@ const saveBtn = useRef()
             console.log('add', admissionSecured, 'res', residence, 'sem', sem, 'batch', batch, 'dobs',
               dob, 'sex', sex, 'etc', etc);
 
-            if (!e.target[0].value) alert('select  photo')
-            else {
-              postPic()
-              // postData()
-            }
+  
+          
+              // postPic()
+              postData()
 
 
 

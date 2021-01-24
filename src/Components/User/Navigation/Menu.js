@@ -15,7 +15,7 @@ const Menu = (props) => {
     if (!course || !sem || !batch) alert('select all the fields')
     
     else {
-      fetch('/student/filterStudent', {
+      fetch('https://mascsdb.herokuapp.com/student/filterStudent', {
         method: 'Put',
         headers: {
           'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ const Menu = (props) => {
   }
 
   const filter = () => {
-    fetch('/student/filter', {
+    fetch('https://mascsdb.herokuapp.com/student/filter', {
       headers: {
         "authorization": token.replace(/['"]+/g, '')
       }

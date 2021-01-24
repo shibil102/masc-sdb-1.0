@@ -14,7 +14,7 @@ const Landing = () => {
     const Call = () => {
         useEffect(() => {
 
-            fetch('/student/all', {
+            fetch('https://mascsdb.herokuapp.com/student/all', {
                 headers: {
                     "authorization": token.replace(/['"]+/g, '')
                 }

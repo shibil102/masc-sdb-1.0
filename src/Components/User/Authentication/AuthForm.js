@@ -12,7 +12,7 @@ const AuthForm = () => {
 
 const login = ()=>{
   console.log('in login');
-  fetch('/auth/login',{
+  fetch('https://mascsdb.herokuapp.com/auth/login',{
     method:'Post',
     headers:{
       "Content-Type":'application/json'
